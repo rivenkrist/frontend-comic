@@ -25,10 +25,83 @@ body {
     border-bottom: 2px solid whitesmoke;
 }
 
+.search-wrapper {
+    width: 400px;
+    margin-left: 10px;
+    margin-right: 0;
+}
+
+.search-box {
+    position: relative;
+    width: 100%; /* penuh sesuai dengan flex */
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.search-input {
+    width: 100%; /* memanjang mengikuti box */
+    height: 50px;
+    padding-left: 45px;
+    padding-right: 20px;
+    border: 2px solid transparent;
+    border-radius: 50px;
+}
+
+.search-box:focus-within {
+    box-shadow: 0 3px 20px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+}
+
+.search-input:focus {
+    border-color: #0d6efd;
+    box-shadow: none;
+}
+
+.search-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+    z-index: 10;
+}
+
+.search-box.dark {
+    background-color: #323539;
+}
+
+.search-box.dark .search-input {
+    background-color: #34383c;
+    color: #fff;
+}
+
+.search-box.dark .search-input::placeholder {
+    color: #6c757d;
+}
+
+.search-box.dark .search-icon {
+    color: #6c757d;
+}
+
 .navbar {
     display: flex;
     align-items: center;
-    gap: 50px; /* jarak antara logo dan ul */
+    gap: 40px; /* jarak antara logo dan ul */
+}
+
+.profile {
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.profile:hover{
+    filter: brightness(0.7);
+    transform: scale(1.05);
 }
 
 .logo {
@@ -41,6 +114,8 @@ body {
 
 .navbar ul{
     display: flex;
+    align-items: center; /* agar teks sejajar vertikal */
+    gap: 5px;
 }
 
 .navbar li{
@@ -48,7 +123,8 @@ body {
     font-size: 16px;
     margin-right: 30px;
     text-decoration: none;
-    display:inline;
+    display:inline-block;
+    white-space: nowrap;
 }
 
 .navbar li::after {
@@ -78,4 +154,33 @@ body {
 .navbar li a:hover{
     color: #01e04b;
 }
+.marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
 
+.marquee h3 {
+    display: inline-block;
+    padding-left: 100%;
+    color: white;
+    animation: marquee 10s linear infinite;
+}
+
+@keyframes marquee {
+    0%   { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+}
+
+.content {
+    flex: 1; /* ini akan push footer ke bawah */
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    z-index: 99;
+}
