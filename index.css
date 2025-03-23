@@ -17,12 +17,47 @@ body {
     left: 0;
     width: 100%;
     padding: 4px 8%; /* Kurangi padding agar header tidak terlalu tinggi */
-    background: transparent;
+    background: #212121;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 100;
-    border-bottom: 2px solid whitesmoke;
+    border-bottom: 1px solid whitesmoke;
+}
+
+.content-iklan{
+    margin-left: 70px;
+    margin-right: 70px;
+    padding: 20px 50px;
+    margin-top: 100px;
+    background-color: #6c757d;
+    width: 1120px;
+    height: 400px;
+    border-radius: 20px;
+}
+
+.content-iklan i {
+    position: absolute;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.content-iklan i:hover {
+    color: #01e04b;
+    transform:scale(1.1);
+}
+
+.content-iklan i:first-child {
+    left: 85px; /* tambahkan ini, atau sesuai kebutuhan */
+    top: 50%;
+}
+
+/* Arrow kanan */
+.content-iklan i:last-child {
+    right: 85px; /* keluar sedikit dari kotak */
+    top:50%;
 }
 
 .search-wrapper {
