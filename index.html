@@ -38,46 +38,94 @@
     
         <!-- Slider -->
         <div class="slider">
-            <img src="https://i1.wp.com/tenshi01.id/wp-content/uploads/2023/07/FDMthNtUcAU2sKa.jpg" alt="slide-1" class="active">
-            <img src="https://i1.wp.com/tenshi01.id/wp-content/uploads/manga-images/s/solo-max-level-newbie/thumbnail.jpg" alt="slide-2">
-            <img src="https://i2.wp.com/tenshi01.id/wp-content/uploads/2023/10/00.jpg" alt="slide-3">
+            <div class="slide active">
+                <img src="https://i2.wp.com/tenshi01.id/wp-content/uploads/2023/10/00.jpg" alt="slide-1">
+                <div class="overlay"></div>
+                <div class="caption">
+                    <h3>Retired Demon King</h3>
+                    <p>Series terbaru bergenre fantasy-action!</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="https://i1.wp.com/tenshi01.id/wp-content/uploads/manga-images/s/solo-max-level-newbie/thumbnail.jpg" alt="slide-2">
+                <div class="overlay"></div>
+                <div class="caption">
+                    <h3>Solo Max Level Newbie</h3>
+                    <p>Chapter update setiap minggu!</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="https://i1.wp.com/tenshi01.id/wp-content/uploads/2023/07/FDMthNtUcAU2sKa.jpg" alt="slide-3">
+                <div class="overlay"></div>
+                <div class="caption">
+                    <h3>Legendary Warrior</h3>
+                    <p>Petualangan epik yang mendebarkan!</p>
+                </div>
+            </div>
         </div>
-    </div>
+    </div>    
     <div class="footer">
         <div class="marquee">
             <h3>Project Sedang Tahap Building</h3>
         </div>
     </div>    
     <script>
-        const slides = document.querySelectorAll('.slider img');
+        const slides = document.querySelectorAll('.slider .slide');
         const nextBtn = document.querySelector('.next');
         const prevBtn = document.querySelector('.prev');
         let currentSlide = 0;
         let autoSlideInterval;
 
         // Fungsi untuk menampilkan slide
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.remove('active');
-                if (i === index) {
-                    slide.classList.add('active');
-                }
+        function showSlide(index, direction = null) {
+            const outgoingSlide = slides[currentSlide];
+            const incomingSlide = slides[index];
+
+            slides.forEach((slide) => {
+                slide.classList.remove('active', 'exit-left', 'exit-right', 'enter-from-left', 'enter-from-right');
             });
+
+            if (direction === 'next') {
+                // Posisi awal masuk dari kanan
+                incomingSlide.classList.add('enter-from-right');
+                setTimeout(() => {
+                    incomingSlide.classList.remove('enter-from-right');
+                    incomingSlide.classList.add('active');
+                    outgoingSlide.classList.add('exit-left');
+                }, 20);
+            } else if (direction === 'prev') {
+                // Posisi awal masuk dari kiri
+                incomingSlide.classList.add('enter-from-left');
+                setTimeout(() => {
+                    incomingSlide.classList.remove('enter-from-left');
+                    incomingSlide.classList.add('active');
+                    outgoingSlide.classList.add('exit-right');
+                }, 20);
+            } else {
+                // Load awal
+                incomingSlide.classList.add('active');
+            }
+
+            currentSlide = index;
         }
+
+
+
+
 
         // Fungsi tombol Next
         nextBtn.addEventListener('click', () => {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
+            let nextIndex = (currentSlide + 1) % slides.length;
+            showSlide(nextIndex, 'next');
             resetAutoSlide();
         });
 
-        // Fungsi tombol Prev
         prevBtn.addEventListener('click', () => {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            showSlide(currentSlide);
+            let prevIndex = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(prevIndex, 'prev');
             resetAutoSlide();
         });
+
 
         // Fungsi autoplay
         function startAutoSlide() {
