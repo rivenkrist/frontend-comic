@@ -6,7 +6,7 @@
 }
 
 body {
-    height: 100vh;
+    height: 200vh;
     width: 100%;
     background-color: #212121;
 }
@@ -220,12 +220,14 @@ body {
     border-radius: 10px;
     width: auto;
     max-width: none;
+    cursor: pointer;
 }
 
 
 .caption h3 {
     margin-bottom: 5px;
     font-size: 22px;
+    cursor: pointer;
 }
 
 .caption p {
@@ -395,6 +397,59 @@ body {
 .navbar li a:hover {
     color: #01e04b;
 }
+/* Container utama Trending Series */
+.trending-series {
+    margin-left: 70px;
+    margin-top: 30px;
+    color: white;
+}
+
+/* Container untuk menampung semua trending item */
+.trending-container {
+    margin-top: 20px;
+    display: flex;
+    gap: 40px; 
+    flex-wrap: wrap;
+}
+
+/* Styling untuk masing-masing item */
+.trending-item {
+    display: flex;
+    flex-direction: column; /* Supaya gambar di atas, teks di bawah */
+    align-items: left;
+    gap: 10px; /* Jarak antara gambar dan teks */
+    cursor: pointer;
+}
+
+/* Gambar Trending */
+.trenimg {
+    width: 200px;
+    height: 280px;
+    border-radius: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Efek hover: Scale tanpa menggeser posisi */
+.trenimg:hover {
+    transform: scale(1.05);
+}
+
+/* Judul */
+.trending-info h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+}
+
+/* Genre */
+.trending-info h4 {
+    font-size: 14px;
+    font-weight: normal;
+    color: rgb(192, 192, 192);
+    margin: 0;
+}
+
 
 /* FOOTER MARQUEE */
 .marquee {
