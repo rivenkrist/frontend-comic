@@ -6,7 +6,7 @@
 }
 
 body {
-    height: 200vh;
+    height: 300vh;
     width: 100%;
     background-color: #212121;
 }
@@ -450,6 +450,50 @@ body {
     margin: 0;
 }
 
+.last-updates h2{
+    margin-top: 50px;
+    margin-left: 70px;
+    margin-bottom: 50px;
+    color: #fff;
+}
+
+.update-container-1 {
+    margin-left: 70px;
+    gap: 40px;
+    margin-bottom: 20px;
+}
+
+.comic-updates {
+    display: flex;
+    background-color: #383838;
+    width: 370px;
+    height: 200px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #6c757d;
+}
+
+.comic-updates img {
+    object-fit: cover;
+    border-radius: 20px 0px 0px 20px;
+}
+
+.comic-updates h3 {
+    margin-top: 8px;
+    margin-left: 8px;
+    margin-bottom: 12px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 10;
+}
+
+.info-comics p {
+    color: #fff;
+    font-size: 14px;
+    padding: 8px 8px;
+    cursor: pointer;
+    border-top: 1px dotted #727272;
+}
 
 /* FOOTER MARQUEE */
 .marquee {
