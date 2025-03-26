@@ -432,6 +432,7 @@ body {
 /* Efek hover: Scale tanpa menggeser posisi */
 .trenimg:hover {
     transform: scale(1.05);
+    box-shadow: 0 0 20px rgb(63, 112, 87);
 }
 
 /* Judul */
@@ -473,9 +474,14 @@ body {
     border: 1px solid #6c757d;
 }
 
+.comic-updates:hover {
+    background-color: #353535;
+}
+
 .comic-updates img {
     object-fit: cover;
     border-radius: 20px 0px 0px 20px;
+    cursor: pointer;
 }
 
 .comic-updates h3 {
@@ -485,6 +491,7 @@ body {
     color: #fff;
     font-size: 18px;
     font-weight: 10;
+    cursor: pointer;
 }
 
 .info-comics p {
@@ -493,6 +500,11 @@ body {
     padding: 8px 8px;
     cursor: pointer;
     border-top: 1px dotted #727272;
+}
+
+.info-comics p:hover {
+    background-color: #696969;
+    transition: 0.3s ease;
 }
 
 /* FOOTER MARQUEE */
