@@ -117,7 +117,7 @@ body {
     height: 100%;
     object-fit: cover;
     position: absolute;
-    object-position: center 20%;
+    object-position: center 10%;
     top: 0;
     left: 0;
     z-index: 0;
@@ -409,7 +409,7 @@ body {
     margin-top: 20px;
     display: flex;
     gap: 40px; 
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 /* Styling untuk masing-masing item */
@@ -459,8 +459,10 @@ body {
 }
 
 .update-container-1 {
+    display: flex;
+    flex-direction: row;
     margin-left: 70px;
-    gap: 40px;
+    gap: 20px;
     margin-bottom: 20px;
 }
 
